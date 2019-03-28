@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name"> Kanto\'s Pokédex</string>
+    <string name="app_name"> National Pokédex</string>
+    <string name="text_pokemon_number">International Pokémon Network ©</string>
+    <string name="hint_type_pokemon_id">Type Pokémon ID</string>
+    <string name="action_search">search</string>
+    <string name="text_nothing_to_show">Nothing to show!</string>
+    <string name="text_not_found_message">Please enter a correct ID</string>
 </resources>
