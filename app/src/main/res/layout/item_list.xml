@@ -3,27 +3,50 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_marginLeft="@dimen/SmallSize">
-
-    <ImageView
-        android:id="@+id/FotoID"
-        android:layout_width="@dimen/BigSize"
-        android:layout_height="@dimen/BigSize" />
-    <TextView
-        android:id="@+id/PkmID"
-        android:layout_width="wrap_content"
+    android:layout_marginLeft="@dimen/SmallSize"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="    001    "
-        android:layout_gravity="center"/>
-    <TextView
-        android:id="@+id/DatoID"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" SUBLIME"
-        android:layout_gravity="center"
+        android:id="@+id/LayoutSel"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">    <ImageView
+            android:id="@+id/FotoID"
+            android:layout_width="@dimen/BigSize"
+            android:layout_height="@dimen/BigSize" />
+            <TextView
+                android:id="@+id/PkmID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/MediumSize"
+                android:layout_marginRight="@dimen/MediumSize"
+                android:gravity="center"
+                android:text="1"
+                android:textColor="@color/green"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/DatoID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" SUBLIME"
+                android:layout_gravity="center"
 
-        />
+                /></LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/SmallSize">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                android:layout_marginBottom="@dimen/MediumSize"
+                />
+        </LinearLayout>
+    </LinearLayout>
 
 
 </LinearLayout>

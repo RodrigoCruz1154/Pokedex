@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int offset;
     private boolean ableToLoad;
     private String TAG="POKEDEX";
+    private LinearLayout pokemonSel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +82,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //implementación de la PokeApi y conversión a objeto mediante gson
         retrofit = new Retrofit.Builder().baseUrl("https://pokeapi.co/api/v2/").addConverterFactory(GsonConverterFactory.create()).build();
 
+        //elegir pokemon
+        /*pokemonSel = findViewById(R.id.LayoutSel);
+        findViewById(R.id.LayoutSel).setOnClickListener(this);*/
+
         ableToLoad=true;
         offset=0;
         getDatos(offset);
@@ -101,14 +106,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     ArrayList<Pokemon> listPokemon = pokemonResponse.getResults();
                     listPokemonAdapter.adicionarListaPokemon(listPokemon);
                 }else{
-                    Toast.makeText(MainActivity.this,"No se ha podido establecer conexión con el servidor.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this,"Su programa ha fallado satisfactoriamente.",Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<PokemonResponse> call, Throwable t) {
                 ableToLoad=true;
-                Toast.makeText(MainActivity.this,"Su programa ha fallado satisfactoriamente.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this,"No se ha establecido una conexión a Internet.",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -125,6 +130,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     btnMostrar.setText("SHOW ALL");
                 }
                 break;
+            /*case R.id.LayoutSel:
+                Toast.makeText(MainActivity.this,"Ha elegido algo",Toast.LENGTH_SHORT).show();
+                break;*/
         }
 
     }

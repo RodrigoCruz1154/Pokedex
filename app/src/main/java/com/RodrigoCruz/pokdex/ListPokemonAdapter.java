@@ -35,7 +35,7 @@ public class ListPokemonAdapter extends RecyclerView.Adapter <ListPokemonAdapter
     public void onBindViewHolder(ViewHolder viewHolderDatos, int i) {
         Pokemon p =dataset.get(i);
         viewHolderDatos.nombreTextView.setText(p.getName()); //nombre
-        //viewHolderDatos.idPokemon.setText(p.getNumber()); //id
+        viewHolderDatos.idPokemon.setText(Integer.toString( p.getNumber())); //id
         //get imagen
         Glide.with(context).load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+p.getNumber()+".png").centerCrop().crossFade().diskCacheStrategy(DiskCacheStrategy.ALL).into(viewHolderDatos.fotoImageView);
 
