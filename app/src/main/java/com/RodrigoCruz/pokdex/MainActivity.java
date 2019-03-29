@@ -1,5 +1,9 @@
 package com.RodrigoCruz.pokdex;
 
+import android.app.Dialog;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +13,7 @@ import android.support.v7.widget.RecyclerView.LayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -16,6 +21,8 @@ import android.widget.Toast;
 import com.RodrigoCruz.pokdex.models.Pokemon;
 import com.RodrigoCruz.pokdex.models.PokemonResponse;
 import com.RodrigoCruz.pokdex.pokeapi.PokeapiService;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.google.gson.Gson;
 
 import java.lang.reflect.Array;
@@ -36,12 +43,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private int offset;
     private boolean ableToLoad;
     private String TAG="POKEDEX";
-    private LinearLayout pokemonSel;
+    private Dialog EntryDataPkn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //PopUp
+        EntryDataPkn = new Dialog(this);
 
         //Icono en el Action Bar
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -78,19 +88,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
             }
         });
+//Lo que sucederá al hacer click en un pokémon
+        listPokemonAdapter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopUp(v);
+            }
+        });
 
         //implementación de la PokeApi y conversión a objeto mediante gson
         retrofit = new Retrofit.Builder().baseUrl("https://pokeapi.co/api/v2/").addConverterFactory(GsonConverterFactory.create()).build();
-
-        //elegir pokemon
-        /*pokemonSel = findViewById(R.id.LayoutSel);
-        findViewById(R.id.LayoutSel).setOnClickListener(this);*/
 
         ableToLoad=true;
         offset=0;
         getDatos(offset);
 
 
+    }
+
+    private void showPopUp(View v) {
+        TextView cerrar;
+        ImageView sprite;
+        TextView nombre;
+        TextView descripcion;
+        TextView number;
+        TextView Tipo;
+
+        EntryDataPkn.setContentView(R.layout.pokedex_register);
+
+        cerrar = EntryDataPkn.findViewById(R.id.Cerrar);
+        sprite = EntryDataPkn.findViewById(R.id.DinamicPknImage);
+        nombre = EntryDataPkn.findViewById(R.id.DimanicPknName);
+        descripcion = EntryDataPkn.findViewById(R.id.DinamicPknDescrip);
+        number = EntryDataPkn.findViewById(R.id.et_pokemon_number);
+        Tipo = EntryDataPkn.findViewById(R.id.DinamicPknType);
+
+
+        //cerrar popUp
+        cerrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                EntryDataPkn.dismiss();
+            }
+        });
+        EntryDataPkn.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        EntryDataPkn.show();
     }
 
     private void getDatos(int offset) {
@@ -130,9 +172,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     btnMostrar.setText("SHOW ALL");
                 }
                 break;
-            /*case R.id.LayoutSel:
-                Toast.makeText(MainActivity.this,"Ha elegido algo",Toast.LENGTH_SHORT).show();
-                break;*/
         }
 
     }

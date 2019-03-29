@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/MinimunScreenWidth"
+    android:layout_height="@dimen/MinimumScreenHeight"
+    android:background="@color/firebrick"
+    android:padding="@dimen/SmallSize"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/Cerrar"
+        android:layout_width="@dimen/BigSize"
+        android:layout_height="@dimen/BigSize"
+        android:text="X"
+        android:textSize="15dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:layout_gravity="end"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/SmallSize"
+        android:layout_marginTop="@dimen/BigSize">
+
+        <ImageView
+            android:id="@+id/DinamicPknImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <TextView
+            android:id="@+id/DimanicPknName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/MediumSize"
+            android:text="Pokémon Name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/BigSize"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/DinamicPknDescrip"
+            android:layout_width="@dimen/MinimunScreenWidth"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="@dimen/BigSize"
+            android:background="@color/darkorange"
+            android:gravity="center"
+            android:text="Description of the Pokémon"
+            android:textColor="@color/white"
+            android:textSize="@dimen/MediumSize"
+            android:padding="@dimen/BigSize"
+            android:textStyle="italic"/>
+        <TextView
+            android:id="@+id/DinamicPknType"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="Type"
+            android:background="@color/ivory"
+            android:layout_gravity="end"
+            android:textColor="@color/white"
+            android:padding="@dimen/SmallSize"
+            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-28dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="Nº. "
+                android:background="@color/darkred"
+                android:layout_gravity="end"
+                android:textColor="@color/white"
+                android:padding="@dimen/SmallSize"/>
+            <TextView
+                android:id="@+id/DinamicPknNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="#"
+                android:background="@color/darkred"
+                android:layout_gravity="end"
+                android:textColor="@color/white"
+                android:padding="@dimen/SmallSize"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

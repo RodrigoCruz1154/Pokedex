@@ -3,4 +3,6 @@
     <dimen name="MediumSize">10dp</dimen>
     <dimen name="SmallSize">5dp</dimen>
     <dimen name="BigSize">30dp</dimen>
+    <dimen name="MinimumScreenHeight">475sp</dimen>
+    <dimen name="MinimunScreenWidth">350sp</dimen>
 </resources>

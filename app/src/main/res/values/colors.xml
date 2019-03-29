@@ -5,5 +5,10 @@
     <color name="colorAccent">#FFC107</color>
     <color name="black">#000000</color>
     <color name="green">#228B22</color>
+    <color name="firebrick">#B22222</color>
+    <color name="white">#FFFFFF</color>
+    <color name="darkred">#8B0000</color>
+    <color name="darkorange">	#FF8C00</color>
+    <color name="ivory">	#008B8B</color>
 
-</resources>
+    </resources>

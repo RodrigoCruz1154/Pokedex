@@ -15,10 +15,11 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import java.util.ArrayList;
 
-public class ListPokemonAdapter extends RecyclerView.Adapter <ListPokemonAdapter.ViewHolder> {
+public class ListPokemonAdapter extends RecyclerView.Adapter <ListPokemonAdapter.ViewHolder> implements View.OnClickListener{
 
     private ArrayList<Pokemon> dataset;
     private Context context;
+    private View.OnClickListener listener;
 
     public ListPokemonAdapter(Context context) {
         this.context = context;
@@ -28,6 +29,9 @@ public class ListPokemonAdapter extends RecyclerView.Adapter <ListPokemonAdapter
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_list, viewGroup, false);
+
+        view.setOnClickListener(this);
+
         return new ViewHolder(view);
     }
 
@@ -46,9 +50,20 @@ public class ListPokemonAdapter extends RecyclerView.Adapter <ListPokemonAdapter
         return dataset.size();
     }
 
+    public void setOnClickListener(View.OnClickListener listener){
+        this.listener = listener;
+    }
+
     public void adicionarListaPokemon(ArrayList<Pokemon> listPokemon) {
         dataset.addAll(listPokemon);
         notifyDataSetChanged();
+    }
+
+    @Override
+    public void onClick(View v) {
+        if(listener!=null){
+            listener.onClick(v);
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
