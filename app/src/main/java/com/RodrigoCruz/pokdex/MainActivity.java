@@ -92,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         listPokemonAdapter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPopUp(v);
+                showPopUp(v, listPokemonAdapter);
             }
         });
 
@@ -106,22 +106,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    private void showPopUp(View v) {
+    private void showPopUp(final View v, ListPokemonAdapter adapter) {
         TextView cerrar;
-        ImageView sprite;
-        TextView nombre;
-        TextView descripcion;
-        TextView number;
-        TextView Tipo;
+
 
         EntryDataPkn.setContentView(R.layout.pokedex_register);
 
         cerrar = EntryDataPkn.findViewById(R.id.Cerrar);
-        sprite = EntryDataPkn.findViewById(R.id.DinamicPknImage);
-        nombre = EntryDataPkn.findViewById(R.id.DimanicPknName);
-        descripcion = EntryDataPkn.findViewById(R.id.DinamicPknDescrip);
-        number = EntryDataPkn.findViewById(R.id.et_pokemon_number);
-        Tipo = EntryDataPkn.findViewById(R.id.DinamicPknType);
 
 
         //cerrar popUp
@@ -133,6 +124,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
         EntryDataPkn.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         EntryDataPkn.show();
+
+
+
+        ImageView sprite;
+        TextView nombre;
+        TextView descripcion;
+        TextView number;
+        TextView Tipo;
+
+        sprite = EntryDataPkn.findViewById(R.id.DinamicPknImage);
+        nombre = EntryDataPkn.findViewById(R.id.DimanicPknName);
+        descripcion = EntryDataPkn.findViewById(R.id.DinamicPknDescrip);
+        number = EntryDataPkn.findViewById(R.id.et_pokemon_number);
+        Tipo = EntryDataPkn.findViewById(R.id.DinamicPknType);
+
+
     }
 
     private void getDatos(int offset) {
